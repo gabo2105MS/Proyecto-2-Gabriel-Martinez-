@@ -76,7 +76,7 @@ public static MonticuloBinario colita = new MonticuloBinario();
         });
         jPanel1.add(Imprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, 110, 50));
 
-        Cancelar1.setText("Cancelar");
+        Cancelar1.setText("Volver");
         Cancelar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Cancelar1ActionPerformed(evt);

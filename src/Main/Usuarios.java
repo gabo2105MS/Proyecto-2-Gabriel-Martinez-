@@ -76,6 +76,9 @@ public class Usuarios {
         if (this.docs[i] == null) {
             this.docs[i] = doc;
             insertado = true;
+            if(this.docs[i].getTipo().equals("prioritario")){
+               this.ajustarTiempoDocumentos(docs[i]);
+            }
             break;
         }
     }
@@ -87,7 +90,12 @@ public class Usuarios {
         nuevo[tamano] = doc;
         this.docs = nuevo;
         tamano++;
+         if(this.docs.equals("prioritario")){
+                this.ajustarTiempoDocumentos(doc);
+            }
     }
+    
+    
          
      
     }
@@ -180,7 +188,22 @@ public class Usuarios {
     }
     
     
-    
+    public void ajustarTiempoDocumentos(Documentos doc) {
+        
+                int tiempo = doc.getTiempo();
+
+                // Ajustar el tiempo según la prioridad del usuario
+                if ("prioridad_alta".equals(this.tipo)) {
+                    tiempo /= 5;
+                } else if ("prioridad_media".equals(this.tipo)) {
+                    tiempo /= 3;
+                }
+
+                // Actualizar el tiempo en el documento
+                doc.setTiempo(tiempo);
+            }
+        
+
     
     
     

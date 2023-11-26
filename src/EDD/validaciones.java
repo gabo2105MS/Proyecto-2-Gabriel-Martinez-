@@ -21,12 +21,12 @@ public class validaciones {
     // Además, verificar que no haya espacios en el nombre de usuario.
     for (char caracter : nombreUsuario.toCharArray()) {
         if (Character.isDigit(caracter) || Character.isWhitespace(caracter)) {
-            return false;
+            return true;
         }
     }
 
     // Si no se encontraron números ni espacios, el nombre de usuario es válido.
-    return true;
+    return false;
 
     }
     

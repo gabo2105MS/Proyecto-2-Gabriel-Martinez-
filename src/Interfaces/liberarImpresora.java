@@ -47,6 +47,8 @@ private  static MonticuloBinario cola;
         jLabel1 = new javax.swing.JLabel();
         liberar = new javax.swing.JButton();
         Cancelar1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,28 +64,34 @@ private  static MonticuloBinario cola;
                 liberarActionPerformed(evt);
             }
         });
-        jPanel1.add(liberar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 110, 50));
+        jPanel1.add(liberar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, 110, 50));
 
-        Cancelar1.setText("Cancelar");
+        Cancelar1.setText("Volver");
         Cancelar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Cancelar1ActionPerformed(evt);
             }
         });
-        jPanel1.add(Cancelar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, 110, 50));
+        jPanel1.add(Cancelar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, 110, 50));
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 520, 140));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 602, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 616, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 357, Short.MAX_VALUE)
         );
 
         pack();
@@ -100,9 +108,10 @@ private  static MonticuloBinario cola;
     private void liberarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_liberarActionPerformed
         // TODO add your handling code here:
         if(cola.colaNoVacia()){
-            cola.eliminarPrimero();
+           String nombre = cola.eliminarPrimero();
             cola.imprimir();
-            JOptionPane.showMessageDialog(null, "El documento "  + " ha sido impreso!!! ");
+            jTextArea1.setText(cola.imprimirTextArea());
+            JOptionPane.showMessageDialog(null, "El documento " + " ' " + nombre +" ' " + " ha sido impreso!!! ");
             
         }else{
             JOptionPane.showMessageDialog(null, "No hay ningun documento que imprimir");
@@ -157,6 +166,8 @@ private  static MonticuloBinario cola;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton liberar;
     // End of variables declaration//GEN-END:variables
 }
