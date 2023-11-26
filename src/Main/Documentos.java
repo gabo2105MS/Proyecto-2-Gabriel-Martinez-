@@ -12,14 +12,14 @@ public class Documentos {
     
     //atributos 
     private String nombre;
-    private int tamano;
+    private String tamano;
     private String tipo;
     private int tiempo;
     private int hijo_izq;
     private int hijo_der;
     public int siguiente;
     
-    public Documentos(String nombre, int tamano, String tipo){
+    public Documentos(String nombre, String tamano, String tipo){
         this.nombre = nombre;
         this.tamano = tamano;
         this.tipo = tipo;
@@ -37,11 +37,11 @@ public class Documentos {
         this.nombre = nombre;
     }
 
-    public int getTamano() {
+    public String getTamano() {
         return tamano;
     }
 
-    public void setTamano(int tamano) {
+    public void setTamano(String tamano) {
         this.tamano = tamano;
     }
 
